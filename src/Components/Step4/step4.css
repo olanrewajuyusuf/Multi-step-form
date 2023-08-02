@@ -1,0 +1,101 @@
+.step4 {
+    padding: 0 20px 25px;
+    position: relative;
+}
+.wrapper {
+    background-color: hsl(217, 100%, 97%);
+    padding: 5px 15px 10px;
+    border-radius: 7px;
+    margin-top: 10px;
+    font-size: 14px;
+}
+.plan-history, .plan {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.plan {
+    align-items: flex-start;
+}
+.plan p {
+    color: hsl(213, 96%, 18%);
+    font-weight: 700;
+}
+#link {
+    color: hsl(231, 11%, 63%);
+    text-decoration: underline;
+    padding: unset;
+    font-weight: lighter;
+    margin-top: -7px;
+}
+#link:hover {
+    color: hsl(243, 100%, 62%);
+}
+hr {
+    height: 1px;
+    background-color: hsl(229, 24%, 87%);
+    border: none;
+}
+.add-ons {
+    margin: 10px 0 0;
+}
+.add-ons p {
+    margin: 5px 0;
+}
+.add-ons p span {
+    float: right;
+    color: hsl(213, 96%, 18%);
+}
+.total {
+    padding: 15px;
+    font-size: 14px;
+}
+.total span {
+    float: right;
+    color: hsl(243, 100%, 62%);
+    font-size: 16px;
+    font-weight: 700;
+}
+/* ----Step 4 Button styling----- */
+.button {
+    width: 100%;
+    position: absolute;
+    left: 0;
+    bottom: -45%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+/* ---Desktop and Tablet mode--- */
+@media (min-width: 750px){
+    .step4 {
+        padding: 0 50px;
+        margin-top: 30px;
+    }
+    .wrapper {
+        padding: 10px 20px 5px;
+    }
+    .plan-history {
+        margin-bottom: 12px;
+    }
+    #link {
+        margin-top: -3px;
+    }
+    .add-ons {
+        margin: 20px 0;
+    }
+    .add-ons p {
+        margin: 10px 0;
+    }
+    .total {
+        margin-top: 10px;
+    }
+
+    /* ----Step 4 Button styling----- */
+    .button {
+        position: relative;
+        margin-top: 180px;
+    }
+
+}
