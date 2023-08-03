@@ -6,7 +6,10 @@ const checkedSlice = createSlice({
         isChecked: true,
         service: true,
         storage: true,
-        profile: false, 
+        profile: false,
+        isService: true,
+        isStorage: true,
+        isProfile: false 
     },
     reducers: {
         handleService(state){
@@ -31,6 +34,29 @@ const checkedSlice = createSlice({
                 state.profile = true;
             } else {
                 state.profile = false;
+            }
+        },
+
+        // Handling Hover effect
+        hoverService(state){
+            if (state.isChecked) {
+                state.isService = true;
+                state.isStorage = false;
+                state.isProfile = false;
+            }
+        },
+        hoverStorage(state){
+            if (state.isChecked) {
+                state.isService = false;
+                state.isStorage = true;
+                state.isProfile = false;
+            }
+        },
+        hoverProfile(state){
+            if (state.isChecked) {
+                state.isService = false;
+                state.isStorage = false;
+                state.isProfile = true;
             }
         },
     }

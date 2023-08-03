@@ -1,8 +1,7 @@
 import { useSelector } from "react-redux";
 
-const Plan = ({image, alt, plan, price, click, style, mouseEnter, mouseLeave}) => {
+const Plan = ({image, alt, plan, price, click, style, hover, enter, leave}) => {
   const isToggled = useSelector((state) => state.toggle.isToggled);
-  const hover = useSelector((state) => state.toggle.hover);
 
   const styles = {
     borderColor: hover ? 'hsl(243, 100%, 62%)' : style ? "hsl(243, 100%, 62%)" : "hsl(231, 11%, 63%)", 
@@ -11,7 +10,7 @@ const Plan = ({image, alt, plan, price, click, style, mouseEnter, mouseLeave}) =
   }
 
   return (
-    <div className="plan-box" style={styles} onClick={click} onMouseEnter={mouseEnter} onMouseLeave={mouseLeave}>
+    <div className="plan-box" style={styles} onClick={click} onMouseEnter={enter} onMouseLeave={leave}>
       <img src={image} alt={alt} />
       <div className="plan">
         <strong>{plan}</strong>

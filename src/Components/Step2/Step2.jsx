@@ -11,11 +11,13 @@ const Step2 = () => {
   const arcade = useSelector((state) => state.toggle.arcade);
   const advanced = useSelector((state) => state.toggle.advanced);
   const pro = useSelector((state) => state.toggle.pro);
-  const hover = useSelector((state) => state.toggle.hover);
   // Plans states selection
   const isArcade = useSelector((state) => state.picked.arcade);
   const isAdvanced = useSelector((state) => state.picked.advanced);
   const isPro = useSelector((state) => state.picked.pro);
+  const hovArcade = useSelector((state) => state.picked.hovArcade);
+  const hovAdvanced = useSelector((state) => state.picked.hovAdvanced);
+  const hovPro = useSelector((state) => state.picked.hovPro);
   // Dispatch
   const dispatch = useDispatch();
 
@@ -35,12 +37,17 @@ const Step2 = () => {
     dispatch(pickedActions.handlePro())
   }
 
-  const handleHover = () => {
-    dispatch(toggleActions.handleHover());
+  // Hover effect function dispatch
+  const hoverArcade = ()=>{
+    dispatch(pickedActions.hoverArcade())
   }
-  const handleMouseLeave = () => {
-    dispatch(toggleActions.handleMouseLeave());
+  const hoverAdvanced = ()=>{
+    dispatch(pickedActions.hoverAdvanced())
   }
+  const hoverPro = ()=>{
+    dispatch(pickedActions.hoverPro())
+  }
+
 
   return (
     <div className="step2">
@@ -49,9 +56,9 @@ const Step2 = () => {
 
       {/* choosing plans section */}
       <div className="plan-wrap">
-        <Plan image="images/icon-arcade.svg" alt="arcade" plan="Arcade" price={arcade} click={handleArcade} style={isArcade} mouseEnter={handleHover} mouseLeave={handleMouseLeave}/>
-        <Plan image="images/icon-advanced.svg" alt="advanced" plan="Advanced" price={advanced} click={handleAdvanced} style={isAdvanced} mouseEnter={handleHover} mouseLeave={handleMouseLeave}/>
-        <Plan image="images/icon-pro.svg" alt="pro" plan="Pro" price={pro} click={handlePro} style={isPro} mouseEnter={handleHover} mouseLeave={handleMouseLeave}/>
+        <Plan image="images/icon-arcade.svg" alt="arcade" plan="Arcade" price={arcade} click={handleArcade} style={isArcade} enter={hoverArcade} leave={hoverArcade} hover={hovArcade}/>
+        <Plan image="images/icon-advanced.svg" alt="advanced" plan="Advanced" price={advanced} click={handleAdvanced} style={isAdvanced} enter={hoverAdvanced} leave={hoverAdvanced} hover={hovAdvanced}/>
+        <Plan image="images/icon-pro.svg" alt="pro" plan="Pro" price={pro} click={handlePro} style={isPro} enter={hoverPro} leave={hoverPro} hover={hovPro}/>
       </div>
 
       {/* Toggling Monthly and Yearly */}

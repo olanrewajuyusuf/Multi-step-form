@@ -8,7 +8,10 @@ const pickedSlice = createSlice({
         advanced: false,
         pro: false,
         plan: 'Arcade',
-        price: [9, 12, 15, 90, 120, 150]
+        price: [9, 12, 15, 90, 120, 150],
+        hovArcade: true,
+        hovAdvanced: false,
+        hovPro: false,
     },
     reducers: {
         handleArcade(state){
@@ -35,25 +38,29 @@ const pickedSlice = createSlice({
                 state.plan = 'Pro'
             } 
         },
-        handleHover(state){
-            if (state.arcade){
-                state.hover = true;
-            } else if (state.advanced){
-                state.hover = true;
-            } else if (state.pro){
-                state.hover = true;
-            } else {
-                state.hover = false;
-            }
-        }
 
-        // if (state.arcade) {
-        //     state.plan = 'Arcade'
-        // } else if (state.advanced) {
-        //     state.plan = 'Advanced'
-        // } else if (state.pro) {
-        //     state.plan = 'Arcade'
-        // }
+        // Handling Hover effect
+        hoverArcade(state){
+            if (state.isChecked) {
+                state.hovArcade = true;
+                state.hovAdvanced = false;
+                state.hovPro = false;
+            } 
+        },
+        hoverAdvanced(state){
+            if (state.isChecked) {
+                state.hovArcade = false;
+                state.hovAdvanced = true;
+                state.hovPro = false;
+            } 
+        },
+        hoverPro(state){
+            if (state.isChecked) {
+                state.hovArcade = false;
+                state.hovAdvanced = false;
+                state.hovPro = true;
+            } 
+        },
     }
 })
 export const pickedActions = pickedSlice.actions;

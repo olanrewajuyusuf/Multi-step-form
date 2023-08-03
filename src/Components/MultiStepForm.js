@@ -3,8 +3,8 @@ import { Route, Routes } from 'react-router-dom'
 import Step1 from './Step1'
 import Step2 from "./Step2/Step2"
 import Step3 from "./Step3/Step3"
-import Step5 from "./Step5"
 import Step4 from "./Step4/Step4"
+import Step5 from "./Step5"
 import NavBar from './NavBar'
 import './styles.css'
 
